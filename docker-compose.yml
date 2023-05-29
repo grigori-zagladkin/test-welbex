@@ -8,8 +8,8 @@ services:
             - 5432:5432
         environment:
             POSTGRES_USER: postgres
-            POSTGRES_PASSWORD: postgres
-            POSTGRES_DB: TEST_DB
+            POSTGRES_PASSWORD: root
+            POSTGRES_DB: test_welbex
         volumes:
             - postgres-data:/var/lib/postgresql/data
         restart: unless-stopped
@@ -34,6 +34,8 @@ services:
             context: .
             dockerfile: Dockerfile
         container_name: prisma-api
+        environment:
+            DATABASE_URL: postgresql://postgres:root@postgres:5432/test_welbex?schema=public
         depends_on:
             - postgres
         ports:

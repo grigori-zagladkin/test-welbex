@@ -12,7 +12,7 @@ datasource db {
 
 model Author {
   id           Int     @id @default(autoincrement())
-  login        String
+  login        String  @unique
   password     String
   refreshToken String?
   posts        Post[]

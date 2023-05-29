@@ -1,4 +1,4 @@
-cp .env.example ./prisma/.env
-npx prisma migrate dev
+npx prisma db push
+npx prisma db generate
 npm run seed
 npm run start
